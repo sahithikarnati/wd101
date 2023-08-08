@@ -1,25 +1,38 @@
-const registrationForm = document.getElementById('registrationForm');
-  const userDataTable = document.getElementById('userDataTable').getElementsByTagName('tbody')[0];
-  const termsCheckbox = document.getElementById('terms');
-  const termsError = document.getElementById('termsError');
+document.addEventListener("DOMContentLoaded", () => {
+      const registrationForm = document.getElementById("registrationForm");
+      const savedData = document.getElementById("savedData");
 
-  registrationForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
+      registrationForm.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-    // Check if terms and conditions are accepted
-    if (!termsCheckbox.checked) {
-      termsError.style.display = 'block';
-      return;
-    } else {
-      termsError.style.display = 'none';
-    }
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const dob = document.getElementById("dob").value;
+        const acceptedTerms = document.querySelector('input[name="terms"]').checked;
 
-    const newRow = userDataTable.insertRow();
-    newRow.insertCell().textContent = registrationForm.name.value;
-    newRow.insertCell().textContent = registrationForm.email.value;
-    newRow.insertCell().textContent = registrationForm.password.value;
-    newRow.insertCell().textContent = registrationForm.dob.value;
+        const dobDate = new Date(dob);
+        const currentDate = new Date();
+        const age = currentDate.getFullYear() - dobDate.getFullYear();
 
-    // Clear form fields after submission
-    registrationForm.reset();
-  });
+        if (age < 18 || age > 55) {
+          alert("Age must be between 18 and 55.");
+          return;
+        }
+
+        const newRow = savedData.insertRow();
+        const nameCell = newRow.insertCell(0);
+        const emailCell = newRow.insertCell(1);
+        const passwordCell= newRow.insertCell(2);
+        const dobCell = newRow.insertCell(3);
+        const acceptedTermsCell = newRow.insertCell(4);
+
+        nameCell.textContent = name;
+        emailCell.textContent = email;
+        passwordCell.textContent = password;
+        dobCell.textContent = dob;
+        acceptedTermsCell.textContent = acceptedTerms ? "True" : "False";
+
+        registrationForm.reset();
+      });
+    });

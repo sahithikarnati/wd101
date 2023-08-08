@@ -1,49 +1,69 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Task</title>
-  </head>
-  <body>
-    <header style="text-align: center">Welcome To My Site</header>
-    <h1>Fill the form</h1>
-    <div class="main">
-      <div class="form">
-        <h4 style="text-align: center">Register Form</h4>
-        <form id="user-form">
-          <label for="name">Name : </label>
-          <input required type="text" name="name" id="name" />
-          <br />
-          <label for="email">Email : </label>
-          <input required type="email" name="email" id="email" />
-          <br />
-          <label for="password">Password : </label>
-          <input required type="password" name="password" id="password" /><br />
-          <label for="dob">DOB : </label>
-          <input type="date" name="dob" id="dob" required />
-          <br />
-          <input
-            style="width: 50px"
-            type="checkbox"
-            name="acceptTerms"
-            id="acceptTerms"
-          />
-          <label for="acceptTerms">Accept terms & Conditions</label>
-          <br /><br />
-          <input
-            style="background-color: rgb(19, 116, 151); color: rgba(255, 255, 255, 0.64)"
-            type="submit"
-            value="Submit"
-          />
-        </form>
-      </div>
-    </div>
-    <div id="entrytbale"></div>
-    <script src="./index.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    th {
+      border: none;
+      padding: 8px;
+      text-align: left;
+    }
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h2>Registration Form</h2>
+<form id="registrationForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email ID:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required><br><br>
+
+    <label>
+      <input type="checkbox" name="terms" required>
+      I accept the terms and conditions
+    </label><br><br>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <h2>Saved Data</h2>
+  <table id="savedData">
+    <tr>
+      <th>Name</th>
+      <th>Email ID</th>
+      <th>Password</th>
+      <th>Dob</th>
+      <th colspan="2">Accepted Terms</th>
+    </tr>
+  </table>
+
+  <script>
+    
+  </script>
+</body>
 </html>
+
+
+
+
 
 
